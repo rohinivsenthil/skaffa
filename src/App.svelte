@@ -5,7 +5,7 @@
 
 <style>
 	:root {
-		--primary: 98, 0, 238;
+		--primary: 71, 145, 219;
 		--black: 0, 0, 0;
 		--white: 255, 255, 255;
 	}
@@ -36,9 +36,6 @@
 	href="https://fonts.googleapis.com/css2?family=Helvetica:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 	rel="stylesheet" />
 <link
-	href="https://fonts.googleapis.com/css2?family=Arial:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-	rel="stylesheet" />
-<link
 	href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
 	rel="stylesheet" />
 <link
@@ -52,14 +49,22 @@
 		<a href="https://svelte.dev/tutorial">Svelte tutorial</a>
 		to learn how to build Svelte apps.
 	</p>
-	<Button onClick={() => console.log('Button clicked')}>button</Button>
-	<Button classt="hello">button</Button>
-	<Button variant="outlined">button</Button>
-	<Button variant="text">button</Button>
+	<h3>Contained</h3>
+	<Button>button</Button>
+	<Button color="#673ab7">button</Button>
 	<Button disabled>button</Button>
+	<h3>Outlined</h3>
+	<Button variant="outlined">button</Button>
 	<Button variant="outlined" disabled>button</Button>
+	<h3>Text</h3>
+	<Button variant="text">button</Button>
 	<Button variant="text" disabled>button</Button>
+	<h3>Full width</h3>
 	<Button fullWidth>button</Button>
+	<h3>Disable elevation</h3>
 	<Button disableElevation>button</Button>
-	<Button href="https://www.google.com" disabled>Link</Button>
+	<h3>Sizes</h3>
+	<Button size="small">Small</Button>
+	<Button>medium</Button>
+	<Button size="large">large</Button>
 </main>

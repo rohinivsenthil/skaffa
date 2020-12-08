@@ -1,21 +1,25 @@
 <script>
+  import { hexToRgb } from "../../utils/hexToRgb";
   export let variant = "contained";
   export let onClick;
   export let disabled = false;
   export let fullWidth = false;
   export let disableElevation = false;
-  export let style;
+  export let style = "";
+  export let size = "medium";
+  export let color = "#4791db";
   /**
    * TODO: add in following props
    */
-  // class
   // href
-  // export let size = 'medium';
-  // export let color = 'primary'
+
+  const rgbCode = hexToRgb(color);
+  const btnStyle = `--theme-color: ${rgbCode}; ` + style;
 
   const btnClass =
     "spunk-btn " +
     `spunk-btn-${variant} ` +
+    `spunk-btn-${size} ` +
     `${fullWidth ? "spunk-btn-full-width " : ""}` +
     `${disableElevation ? "spunk-btn-disable-elevation " : ""}`;
 </script>
@@ -29,13 +33,11 @@
     vertical-align: middle;
 
     min-width: 64px;
-    padding: 6px 16px 6px 16px;
     border: none;
     border-radius: 4px;
     margin: 8px;
 
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    font-size: 14px;
     line-height: 1.75;
     font-weight: 400;
     letter-spacing: 1.4px;
@@ -46,8 +48,23 @@
       border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
+  .spunk-btn-small {
+    padding: 4px 10px;
+    font-size: 13px;
+  }
+
+  .spunk-btn-medium {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+
+  .spunk-btn-large {
+    padding: 8px 22px;
+    font-size: 15px;
+  }
+
   .spunk-btn:disabled {
-    color: rgba(var(--black), 0.26);
+    color: rgba(0, 0, 0, 0.26);
   }
 
   .spunk-btn:hover {
@@ -55,42 +72,40 @@
   }
 
   .spunk-btn-contained {
-    background-color: rgb(var(--primary));
-    color: rgb(var(--white));
-    box-shadow: 0px 3px 1px -2px rgba(var(--black), 0.2),
-      0px 2px 2px 0px rgba(var(--black), 0.14),
-      0px 1px 5px 0px rgba(var(--black), 0.12);
+    background-color: rgb(var(--theme-color));
+    color: rgb(255, 255, 255);
+    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   }
 
   .spunk-btn-contained:hover:not(:disabled) {
-    box-shadow: 0px 2px 4px -1px rgba(var(--black), 0.2),
-      0px 4px 5px 0px rgba(var(--black), 0.14),
-      0px 1px 10px 0px rgba(var(--black), 0.12);
-    filter: brightness(120%);
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+    filter: brightness(110%);
   }
 
   .spunk-btn-contained:disabled {
     box-shadow: none;
-    background-color: rgba(var(--black), 0.12);
+    background-color: rgba(0, 0, 0, 0.12);
   }
 
   .spunk-btn-outlined {
     background-color: transparent;
-    border: 1px solid rgb(var(--primary));
-    color: rgb(var(--primary));
+    border: 1px solid rgb(var(--theme-color));
+    color: rgb(var(--theme-color));
   }
 
   .spunk-btn-outlined:disabled {
-    border: 1px solid rgba(var(--black), 0.12);
+    border: 1px solid rgba(0, 0, 0, 0.12);
   }
 
   .spunk-btn-text {
     background-color: transparent;
-    color: rgb(var(--primary));
+    color: rgb(var(--theme-color));
   }
 
   .spunk-btn-text:hover:not(:disabled) {
-    background-color: rgba(var(--primary), 0.05);
+    background-color: rgba(var(--theme-color), 0.05);
   }
 
   .spunk-btn-full-width {
@@ -106,6 +121,11 @@
   }
 </style>
 
-<button class={btnClass} on:click={onClick} {disabled} type="button" {style}>
+<button
+  class={btnClass}
+  on:click={onClick}
+  {disabled}
+  type="button"
+  style={btnStyle}>
   <slot />
 </button>
