@@ -1,7 +1,6 @@
 <script>
 	import Button from "./components/Button/index.svelte";
 	import TextField from "./components/TextField/index.svelte";
-	export let name;
 </script>
 
 <style>
@@ -12,17 +11,10 @@
 	}
 
 	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 100px;
 	}
 
 	@media (min-width: 640px) {
@@ -44,12 +36,6 @@
 	rel="stylesheet" />
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>
-		Visit the
-		<a href="https://svelte.dev/tutorial">Svelte tutorial</a>
-		to learn how to build Svelte apps.
-	</p>
 	<div style="width: 100%">
 		<TextField label="Standard" />
 		<TextField label="Required" required />
@@ -58,5 +44,8 @@
 		<TextField label="Full Width" fullWidth />
 		<TextField label="Helper Text" helperText="Helper Text" />
 		<TextField label="Password" type="password" />
+		<TextField label="Multiline" multiline />
+		<TextField label="Error" error />
+		<TextField label="Error" error helperText="Incorrect entry"/>
 	</div>
 </main>

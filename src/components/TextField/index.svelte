@@ -12,16 +12,16 @@
   export let helperText;
   export let onChange;
   export let type = "text";
+  export let multiline = false;
+  export let rows = "1";
+  export let error = false;
   /**
    * TODO: add in following props
    * disabled
-   * error
    * input props
    * input style
    * wrapper style
-   * multiline
    * placeholder
-   * rows
    * size
    * variant
    */
@@ -32,6 +32,14 @@
   const textfGroupClass =
     "spunk-textf-group " +
     `${fullWidth ? "spunk-textf-group-full-width " : ""}`;
+  const textfClass = "spunk-textf " + `${error ? "spunk-textf-error " : ""}`;
+  const textfBarClass =
+    "spunk-textf-bar " + `${error ? "spunk-textf-bar-error " : ""}`;
+  const textfLabelClass =
+    "spunk-textf-label " + `${error ? "spunk-textf-label-error " : ""}`;
+  const textfHelperTextClass =
+    "spunk-textf-helper-text " +
+    `${error ? "spunk-textf-helper-text-error " : ""}`;
   label = `${required ? label + " *" : label}`;
 </script>
 
@@ -42,7 +50,7 @@
     flex-direction: column;
     vertical-align: top;
     min-width: 0;
-    margin: 8px;
+    margin: 24px 8px 8px 8px;
     padding: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   }
@@ -69,6 +77,10 @@
     cursor: text;
   }
 
+  .spunk-textf-error {
+    border-bottom: 1px solid #f44336;
+  }
+
   .spunk-textf:focus {
     outline: none;
   }
@@ -91,11 +103,20 @@
     -webkit-transition: 0.2s ease all;
   }
 
+  .spunk-textf-label-error {
+    color: #f44336;
+  }
+
   .spunk-textf:focus ~ .spunk-textf-label,
   .spunk-textf:valid ~ .spunk-textf-label {
     top: -20px;
     font-size: 10px;
     color: rgb(var(--textf-color));
+  }
+
+  .spunk-textf-error:focus ~ .spunk-textf-label,
+  .spunk-textf-error:valid ~ .spunk-textf-label {
+    color: #f44336;
   }
 
   .spunk-textf-bar {
@@ -114,6 +135,11 @@
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
+  }
+
+  .spunk-textf-bar-error:before,
+  .spunk-textf-bar-error:after {
+    background: #f44336;
   }
 
   .spunk-textf-bar:before {
@@ -135,19 +161,35 @@
     font-size: 10px;
     color: #757575;
   }
+
+  .spunk-textf-helper-text-error {
+    color: #f44336;
+  }
 </style>
 
 <div class={textfGroupClass} style={textfStyle}>
-  <input
-    class="spunk-textf"
-    {type}
-    required
-    on:input={onChange}
-    value={textfValue}
-    {id}
-    {name} />
-  <span class="spunk-textf-bar" />
-  {#if helperText}<span class="spunk-textf-helper-text">{helperText}</span>{/if}
+  {#if !multiline}
+    <input
+      class={textfClass}
+      {type}
+      required
+      on:input={onChange}
+      value={textfValue}
+      {id}
+      {name} />
+  {:else}
+    <textarea
+      class={textfClass}
+      {type}
+      {rows}
+      required
+      on:input={onChange}
+      value={textfValue}
+      {id}
+      {name} />
+  {/if}
+  <span class={textfBarClass} />
+  {#if helperText}<span class={textfHelperTextClass}>{helperText}</span>{/if}
   <!-- svelte-ignore a11y-label-has-associated-control -->
-  <label class="spunk-textf-label">{label}</label>
+  <label class={textfLabelClass}>{label}</label>
 </div>
