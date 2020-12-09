@@ -1,7 +1,37 @@
 <script>
+  import { hexToRgb } from "../../utils/hexToRgb";
   export let label = "";
   export let required = false;
+  export let color = "#4791db";
+  export let style = "";
+  export let defaultValue;
+  export let value;
+  export let id;
+  export let name;
+  export let fullWidth = false;
+  export let helperText;
+  export let onChange;
+  export let type = "text";
+  /**
+   * TODO: add in following props
+   * disabled
+   * error
+   * input props
+   * input style
+   * wrapper style
+   * multiline
+   * placeholder
+   * rows
+   * size
+   * variant
+   */
 
+  const rgbCode = hexToRgb(color);
+  const textfValue = `${value ? value : defaultValue ? defaultValue : ""}`;
+  const textfStyle = `--textf-color: ${rgbCode}; ` + style;
+  const textfGroupClass =
+    "spunk-textf-group " +
+    `${fullWidth ? "spunk-textf-group-full-width " : ""}`;
   label = `${required ? label + " *" : label}`;
 </script>
 
@@ -15,6 +45,10 @@
     margin: 8px;
     padding: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  }
+
+  .spunk-textf-group-full-width {
+    width: 100%;
   }
 
   .spunk-textf {
@@ -61,7 +95,7 @@
   .spunk-textf:valid ~ .spunk-textf-label {
     top: -20px;
     font-size: 10px;
-    color: #4285f4;
+    color: rgb(var(--textf-color));
   }
 
   .spunk-textf-bar {
@@ -76,7 +110,7 @@
     width: 0;
     bottom: 0.5px;
     position: absolute;
-    background: #4285f4;
+    background: rgb(var(--textf-color));
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -94,11 +128,26 @@
   .spunk-textf:focus ~ .spunk-textf-bar:after {
     width: 50%;
   }
+
+  .spunk-textf-helper-text {
+    margin-top: 5px;
+    text-align: left;
+    font-size: 10px;
+    color: #757575;
+  }
 </style>
 
-<div class="spunk-textf-group">
-  <input class="spunk-textf" type="text" required />
+<div class={textfGroupClass} style={textfStyle}>
+  <input
+    class="spunk-textf"
+    {type}
+    required
+    on:input={onChange}
+    value={textfValue}
+    {id}
+    {name} />
   <span class="spunk-textf-bar" />
+  {#if helperText}<span class="spunk-textf-helper-text">{helperText}</span>{/if}
   <!-- svelte-ignore a11y-label-has-associated-control -->
   <label class="spunk-textf-label">{label}</label>
 </div>

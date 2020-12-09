@@ -53,5 +53,10 @@
 	<div style="width: 100%">
 		<TextField label="Standard" />
 		<TextField label="Required" required />
+		<TextField label="Colored" color="#e91e63" />
+		<TextField label="Default Value" defaultValue="Default Text" />
+		<TextField label="Full Width" fullWidth />
+		<TextField label="Helper Text" helperText="Helper Text" />
+		<TextField label="Password" type="password" />
 	</div>
 </main>
