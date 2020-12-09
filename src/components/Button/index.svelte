@@ -12,9 +12,10 @@
    * TODO: add in following props
    */
   // href
+  // ripple effect
 
   const rgbCode = hexToRgb(color);
-  const btnStyle = `--theme-color: ${rgbCode}; ` + style;
+  const btnStyle = `--btn-color: ${rgbCode}; ` + style;
 
   const btnClass =
     "spunk-btn " +
@@ -72,7 +73,7 @@
   }
 
   .spunk-btn-contained {
-    background-color: rgb(var(--theme-color));
+    background-color: rgb(var(--btn-color));
     color: rgb(255, 255, 255);
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
@@ -91,8 +92,8 @@
 
   .spunk-btn-outlined {
     background-color: transparent;
-    border: 1px solid rgb(var(--theme-color));
-    color: rgb(var(--theme-color));
+    border: 1px solid rgb(var(--btn-color));
+    color: rgb(var(--btn-color));
   }
 
   .spunk-btn-outlined:disabled {
@@ -101,11 +102,11 @@
 
   .spunk-btn-text {
     background-color: transparent;
-    color: rgb(var(--theme-color));
+    color: rgb(var(--btn-color));
   }
 
   .spunk-btn-text:hover:not(:disabled) {
-    background-color: rgba(var(--theme-color), 0.05);
+    background-color: rgba(var(--btn-color), 0.05);
   }
 
   .spunk-btn-full-width {

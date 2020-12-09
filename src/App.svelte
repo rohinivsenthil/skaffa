@@ -1,5 +1,6 @@
 <script>
 	import Button from "./components/Button/index.svelte";
+	import TextField from "./components/TextField/index.svelte";
 	export let name;
 </script>
 
@@ -49,22 +50,8 @@
 		<a href="https://svelte.dev/tutorial">Svelte tutorial</a>
 		to learn how to build Svelte apps.
 	</p>
-	<h3>Contained</h3>
-	<Button>button</Button>
-	<Button color="#673ab7">button</Button>
-	<Button disabled>button</Button>
-	<h3>Outlined</h3>
-	<Button variant="outlined">button</Button>
-	<Button variant="outlined" disabled>button</Button>
-	<h3>Text</h3>
-	<Button variant="text">button</Button>
-	<Button variant="text" disabled>button</Button>
-	<h3>Full width</h3>
-	<Button fullWidth>button</Button>
-	<h3>Disable elevation</h3>
-	<Button disableElevation>button</Button>
-	<h3>Sizes</h3>
-	<Button size="small">Small</Button>
-	<Button>medium</Button>
-	<Button size="large">large</Button>
+	<div style="width: 100%">
+		<TextField label="Standard" />
+		<TextField label="Required" required />
+	</div>
 </main>
