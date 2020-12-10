@@ -11,98 +11,98 @@
     style;
 
   const typographyClass =
-    "spunk-typography " +
-    `spunk-typography-${variant} ` +
-    `${gutterBottom ? "spunk-typography-gutter-bottom " : ""}` +
-    `${align ? `spunk-typography-align ` : ""}` +
-    `${display ? `spunk-typography-display ` : ""}`;
+    "snowflake-typography " +
+    `snowflake-typography-${variant} ` +
+    `${gutterBottom ? "snowflake-typography-gutter-bottom " : ""}` +
+    `${align ? `snowflake-typography-align ` : ""}` +
+    `${display ? `snowflake-typography-display ` : ""}`;
 </script>
 
 <style>
-  .spunk-typography {
+  .snowflake-typography {
     margin: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     color: var(--typography-color);
   }
 
-  .spunk-typography-h1 {
+  .snowflake-typography-h1 {
     font-size: 6rem;
     font-weight: 300;
     line-height: 1.167;
     letter-spacing: -0.01562em;
   }
 
-  .spunk-typography-h2 {
+  .snowflake-typography-h2 {
     font-size: 3.75rem;
     font-weight: 300;
     line-height: 1.2;
     letter-spacing: -0.00833em;
   }
 
-  .spunk-typography-h3 {
+  .snowflake-typography-h3 {
     font-size: 3rem;
     font-weight: 400;
     line-height: 1.167;
     letter-spacing: 0em;
   }
 
-  .spunk-typography-h4 {
+  .snowflake-typography-h4 {
     font-size: 2.125rem;
     font-weight: 400;
     line-height: 1.235;
     letter-spacing: 0.00735em;
   }
 
-  .spunk-typography-h5 {
+  .snowflake-typography-h5 {
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.334;
     letter-spacing: 0em;
   }
 
-  .spunk-typography-h6 {
+  .snowflake-typography-h6 {
     font-size: 1.25rem;
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.0075em;
   }
 
-  .spunk-typography-subtitle1 {
+  .snowflake-typography-subtitle1 {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.75;
     letter-spacing: 0.00938em;
   }
 
-  .spunk-typography-subtitle2 {
+  .snowflake-typography-subtitle2 {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.57;
     letter-spacing: 0.00714em;
   }
 
-  .spunk-typography-body1 {
+  .snowflake-typography-body1 {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.5;
     letter-spacing: 0.00938em;
   }
 
-  .spunk-typography-body2 {
+  .snowflake-typography-body2 {
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.43;
     letter-spacing: 0.01071em;
   }
 
-  .spunk-typography-caption {
+  .snowflake-typography-caption {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 1.66;
     letter-spacing: 0.03333em;
   }
 
-  .spunk-typography-button {
+  .snowflake-typography-button {
     font-size: 0.875rem;
     font-weight: 500;
     line-height: 1.75;
@@ -110,7 +110,7 @@
     text-transform: uppercase;
   }
 
-  .spunk-typography-overline {
+  .snowflake-typography-overline {
     font-size: 0.75rem;
     font-weight: 400;
     line-height: 2.66;
@@ -118,15 +118,15 @@
     text-transform: uppercase;
   }
 
-  .spunk-typography-gutter-bottom {
+  .snowflake-typography-gutter-bottom {
     margin-bottom: 0.35em;
   }
 
-  .spunk-typography-display {
+  .snowflake-typography-display {
     display: var(--typography-display);
   }
 
-  .spunk-typography-align {
+  .snowflake-typography-align {
     text-align: var(--typography-align);
   }
 </style>

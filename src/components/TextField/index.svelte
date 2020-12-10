@@ -27,21 +27,21 @@
   const textfValue = `${value ? value : defaultValue ? defaultValue : ""}`;
   const textfGroupStyle = `--textf-color: ${color}; `;
   const textfGroupClass =
-    "spunk-textf-group " +
-    `${fullWidth ? "spunk-textf-group-full-width " : ""}`;
-  const textfClass = "spunk-textf " + `${error ? "spunk-textf-error " : ""}`;
+    "snowflake-textf-group " +
+    `${fullWidth ? "snowflake-textf-group-full-width " : ""}`;
+  const textfClass = "snowflake-textf " + `${error ? "snowflake-textf-error " : ""}`;
   const textfBarClass =
-    "spunk-textf-bar " + `${error ? "spunk-textf-bar-error " : ""}`;
+    "snowflake-textf-bar " + `${error ? "snowflake-textf-bar-error " : ""}`;
   const textfLabelClass =
-    "spunk-textf-label " + `${error ? "spunk-textf-label-error " : ""}`;
+    "snowflake-textf-label " + `${error ? "snowflake-textf-label-error " : ""}`;
   const textfHelperTextClass =
-    "spunk-textf-helper-text " +
-    `${error ? "spunk-textf-helper-text-error " : ""}`;
+    "snowflake-textf-helper-text " +
+    `${error ? "snowflake-textf-helper-text-error " : ""}`;
   label = `${required ? label + " *" : label}`;
 </script>
 
 <style>
-  .spunk-textf-group {
+  .snowflake-textf-group {
     position: relative;
     display: inline-flex;
     flex-direction: column;
@@ -52,11 +52,11 @@
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   }
 
-  .spunk-textf-group-full-width {
+  .snowflake-textf-group-full-width {
     width: 100%;
   }
 
-  .spunk-textf {
+  .snowflake-textf {
     display: block;
     position: relative;
     box-sizing: border-box;
@@ -74,15 +74,15 @@
     cursor: text;
   }
 
-  .spunk-textf-error {
+  .snowflake-textf-error {
     border-bottom: 1px solid #f44336;
   }
 
-  .spunk-textf:focus {
+  .snowflake-textf:focus {
     outline: none;
   }
 
-  .spunk-textf-label {
+  .snowflake-textf-label {
     position: absolute;
     pointer-events: none;
     padding: 0;
@@ -100,37 +100,37 @@
     -webkit-transition: 0.2s ease all;
   }
 
-  .spunk-textf-label-error {
+  .snowflake-textf-label-error {
     color: #f44336;
   }
 
-  .spunk-textf:focus ~ .spunk-textf-label,
-  .spunk-textf:valid ~ .spunk-textf-label {
+  .snowflake-textf:focus ~ .snowflake-textf-label,
+  .snowflake-textf:valid ~ .snowflake-textf-label {
     top: -16px;
     font-size: 10px;
     color: var(--textf-color);
   }
 
-  .spunk-textf:not(:focus) ~ .spunk-textf-label {
+  .snowflake-textf:not(:focus) ~ .snowflake-textf-label {
     color: rgba(0, 0, 0, 0.54);
   }
 
-  .spunk-textf:not(:focus) ~ .spunk-textf-label-error {
+  .snowflake-textf:not(:focus) ~ .snowflake-textf-label-error {
     color: #f44336;
   }
 
-  .spunk-textf-error:focus ~ .spunk-textf-label,
-  .spunk-textf-error:valid ~ .spunk-textf-label {
+  .snowflake-textf-error:focus ~ .snowflake-textf-label,
+  .snowflake-textf-error:valid ~ .snowflake-textf-label {
     color: #f44336;
   }
 
-  .spunk-textf-bar {
+  .snowflake-textf-bar {
     position: relative;
     display: block;
   }
 
-  .spunk-textf-bar:before,
-  .spunk-textf-bar:after {
+  .snowflake-textf-bar:before,
+  .snowflake-textf-bar:after {
     content: "";
     height: 2px;
     width: 0;
@@ -142,32 +142,32 @@
     -webkit-transition: 0.2s ease all;
   }
 
-  .spunk-textf-bar-error:before,
-  .spunk-textf-bar-error:after {
+  .snowflake-textf-bar-error:before,
+  .snowflake-textf-bar-error:after {
     background: #f44336;
   }
 
-  .spunk-textf-bar:before {
+  .snowflake-textf-bar:before {
     left: 50%;
   }
 
-  .spunk-textf-bar:after {
+  .snowflake-textf-bar:after {
     right: 50%;
   }
 
-  .spunk-textf:focus ~ .spunk-textf-bar:before,
-  .spunk-textf:focus ~ .spunk-textf-bar:after {
+  .snowflake-textf:focus ~ .snowflake-textf-bar:before,
+  .snowflake-textf:focus ~ .snowflake-textf-bar:after {
     width: 50%;
   }
 
-  .spunk-textf-helper-text {
+  .snowflake-textf-helper-text {
     margin-top: 5px;
     text-align: left;
     font-size: 10px;
     color: #757575;
   }
 
-  .spunk-textf-helper-text-error {
+  .snowflake-textf-helper-text-error {
     color: #f44336;
   }
 </style>

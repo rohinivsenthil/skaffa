@@ -19,15 +19,15 @@
   const btnStyle = `--btn-color: ${rgbCode}; ` + style;
 
   const btnClass =
-    "spunk-btn " +
-    `spunk-btn-${variant} ` +
-    `spunk-btn-${size} ` +
-    `${fullWidth ? "spunk-btn-full-width " : ""}` +
-    `${disableElevation ? "spunk-btn-disable-elevation " : ""}`;
+    "snowflake-btn " +
+    `snowflake-btn-${variant} ` +
+    `snowflake-btn-${size} ` +
+    `${fullWidth ? "snowflake-btn-full-width " : ""}` +
+    `${disableElevation ? "snowflake-btn-disable-elevation " : ""}`;
 </script>
 
 <style>
-  .spunk-btn {
+  .snowflake-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,75 +50,75 @@
       border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
-  .spunk-btn-small {
+  .snowflake-btn-small {
     padding: 4px 10px;
     font-size: 13px;
   }
 
-  .spunk-btn-medium {
+  .snowflake-btn-medium {
     padding: 6px 16px;
     font-size: 14px;
   }
 
-  .spunk-btn-large {
+  .snowflake-btn-large {
     padding: 8px 22px;
     font-size: 15px;
   }
 
-  .spunk-btn:disabled {
+  .snowflake-btn:disabled {
     color: rgba(0, 0, 0, 0.26);
   }
 
-  .spunk-btn:hover {
+  .snowflake-btn:hover {
     cursor: pointer;
   }
 
-  .spunk-btn-contained {
+  .snowflake-btn-contained {
     background-color: rgb(var(--btn-color));
     color: rgb(255, 255, 255);
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   }
 
-  .spunk-btn-contained:hover:not(:disabled) {
+  .snowflake-btn-contained:hover:not(:disabled) {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     filter: brightness(110%);
   }
 
-  .spunk-btn-contained:disabled {
+  .snowflake-btn-contained:disabled {
     box-shadow: none;
     background-color: rgba(0, 0, 0, 0.12);
   }
 
-  .spunk-btn-outlined {
+  .snowflake-btn-outlined {
     background-color: transparent;
     border: 1px solid rgb(var(--btn-color));
     color: rgb(var(--btn-color));
   }
 
-  .spunk-btn-outlined:disabled {
+  .snowflake-btn-outlined:disabled {
     border: 1px solid rgba(0, 0, 0, 0.12);
   }
 
-  .spunk-btn-text {
+  .snowflake-btn-text {
     background-color: transparent;
     color: rgb(var(--btn-color));
   }
 
-  .spunk-btn-text:hover:not(:disabled) {
+  .snowflake-btn-text:hover:not(:disabled) {
     background-color: rgba(var(--btn-color), 0.05);
   }
 
-  .spunk-btn-full-width {
+  .snowflake-btn-full-width {
     width: 100%;
   }
 
-  .spunk-btn-disable-elevation:not(:disabled) {
+  .snowflake-btn-disable-elevation:not(:disabled) {
     box-shadow: none;
   }
 
-  .spunk-btn-disable-elevation:hover:not(:disabled) {
+  .snowflake-btn-disable-elevation:hover:not(:disabled) {
     box-shadow: none;
   }
 </style>
