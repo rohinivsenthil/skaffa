@@ -46,6 +46,7 @@
 		<TextField label="Password" type="password" />
 		<TextField label="Multiline" multiline />
 		<TextField label="Error" error />
-		<TextField label="Error" error helperText="Incorrect entry"/>
+		<TextField label="Error" error helperText="Incorrect entry" />
+		<!-- <TextField label="Read Only" defaultValue="Read Only" inputProps={{readOnly: true}}/> -->
 	</div>
 </main>

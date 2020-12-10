@@ -15,20 +15,19 @@
   export let multiline = false;
   export let rows = "1";
   export let error = false;
+  export let inputProps = {};
   /**
    * TODO: add in following props
    * disabled
-   * input props
-   * input style
-   * wrapper style
-   * placeholder
+   * input props // fix css
+   * placeholder //fix css
    * size
    * variant
    */
 
   const rgbCode = hexToRgb(color);
   const textfValue = `${value ? value : defaultValue ? defaultValue : ""}`;
-  const textfStyle = `--textf-color: ${rgbCode}; ` + style;
+  const textfGroupStyle = `--textf-color: ${rgbCode}; `;
   const textfGroupClass =
     "spunk-textf-group " +
     `${fullWidth ? "spunk-textf-group-full-width " : ""}`;
@@ -50,7 +49,7 @@
     flex-direction: column;
     vertical-align: top;
     min-width: 0;
-    margin: 24px 8px 8px 8px;
+    margin: 18px 8px 8px 8px;
     padding: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   }
@@ -109,9 +108,17 @@
 
   .spunk-textf:focus ~ .spunk-textf-label,
   .spunk-textf:valid ~ .spunk-textf-label {
-    top: -20px;
+    top: -16px;
     font-size: 10px;
     color: rgb(var(--textf-color));
+  }
+
+  .spunk-textf:not(:focus) ~ .spunk-textf-label {
+    color: rgba(0, 0, 0, 0.54);
+  }
+
+  .spunk-textf:not(:focus) ~ .spunk-textf-label-error {
+    color: #f44336;
   }
 
   .spunk-textf-error:focus ~ .spunk-textf-label,
@@ -167,7 +174,7 @@
   }
 </style>
 
-<div class={textfGroupClass} style={textfStyle}>
+<div class={textfGroupClass} style={textfGroupStyle}>
   {#if !multiline}
     <input
       class={textfClass}
@@ -175,6 +182,8 @@
       required
       on:input={onChange}
       value={textfValue}
+      {...inputProps}
+      {style}
       {id}
       {name} />
   {:else}
@@ -182,6 +191,7 @@
       class={textfClass}
       {type}
       {rows}
+      {...inputProps}
       required
       on:input={onChange}
       value={textfValue}
