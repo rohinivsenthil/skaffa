@@ -1,5 +1,4 @@
 <script>
-  import { hexToRgb } from "../../utils/hexToRgb";
   export let variant = "body1";
   export let gutterBottom = false;
   export let style = "";
@@ -7,9 +6,8 @@
   export let align;
   export let color = "#000000";
 
-  const rgbCode = hexToRgb(color);
   const typographyStyle =
-    `--typography-color: ${rgbCode}; --typography-display: ${display}; --typography-align: ${align};` +
+    `--typography-color: ${color}; --typography-display: ${display}; --typography-align: ${align};` +
     style;
 
   const typographyClass =
@@ -24,7 +22,7 @@
   .spunk-typography {
     margin: 0;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    color: rgb(var(--typography-color));
+    color: var(--typography-color);
   }
 
   .spunk-typography-h1 {

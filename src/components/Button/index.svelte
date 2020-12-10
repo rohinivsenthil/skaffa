@@ -11,6 +11,7 @@
   /**
    * TODO: add in following props
    */
+  // rgba support
   // href
   // ripple effect
 

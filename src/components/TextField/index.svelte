@@ -1,5 +1,4 @@
 <script>
-  import { hexToRgb } from "../../utils/hexToRgb";
   export let label = "";
   export let required = false;
   export let color = "#4791db";
@@ -25,9 +24,8 @@
    * variant
    */
 
-  const rgbCode = hexToRgb(color);
   const textfValue = `${value ? value : defaultValue ? defaultValue : ""}`;
-  const textfGroupStyle = `--textf-color: ${rgbCode}; `;
+  const textfGroupStyle = `--textf-color: ${color}; `;
   const textfGroupClass =
     "spunk-textf-group " +
     `${fullWidth ? "spunk-textf-group-full-width " : ""}`;
@@ -110,7 +108,7 @@
   .spunk-textf:valid ~ .spunk-textf-label {
     top: -16px;
     font-size: 10px;
-    color: rgb(var(--textf-color));
+    color: var(--textf-color);
   }
 
   .spunk-textf:not(:focus) ~ .spunk-textf-label {
@@ -138,7 +136,7 @@
     width: 0;
     bottom: 0.5px;
     position: absolute;
-    background: rgb(var(--textf-color));
+    background: var(--textf-color);
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
