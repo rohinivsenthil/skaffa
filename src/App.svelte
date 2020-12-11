@@ -2,6 +2,7 @@
 	import Button from "./components/Button/index.svelte";
 	import TextField from "./components/TextField/index.svelte";
 	import Typography from "./components/Typography/index.svelte";
+	import Radio from "./components/Radio/index.svelte";
 </script>
 
 <style>
@@ -33,23 +34,6 @@
 
 <main>
 	<div style="width: 100%">
-		<Typography variant="h1">h1. Hello</Typography>
-		<Typography variant="h2">h2. Hello</Typography>
-		<Typography variant="h3">h3. Hello</Typography>
-		<Typography variant="h4">h4. Hello</Typography>
-		<Typography variant="h5">h5. Hello</Typography>
-		<Typography variant="h6">h6. Hello</Typography>
-		<Typography variant="h6" color="#ff5252">h6. Hello</Typography>
-		<Typography variant="h6" align="center">h6. Hello</Typography>
-
-		<Typography variant="subtitle1">subtitle1. Hello</Typography>
-		<Typography variant="subtitle2">subtitle2. Hello</Typography>
-
-		<Typography variant="body1">body1. Hello</Typography>
-		<Typography variant="body2">body2. Hello</Typography>
-
-		<Typography variant="caption" display="block">Hello</Typography>
-		<Typography variant="button" display="block">Hello</Typography>
-		<Typography variant="overline" display="block">Hello</Typography>
+		<Radio label="Radio" />
 	</div>
 </main>
