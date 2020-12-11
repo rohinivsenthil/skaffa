@@ -10,8 +10,8 @@ Snowflake is a small and minimalistic UI/UX component library for Svelte and Sap
 - [x] Button
 - [x] Typography
 - [x] Radio
+- [x] Checkbox
 - Select
-- Checkbox
 - List
 - Chip
 - Menu

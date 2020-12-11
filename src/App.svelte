@@ -3,6 +3,7 @@
 	import TextField from "./components/TextField/index.svelte";
 	import Typography from "./components/Typography/index.svelte";
 	import Radio from "./components/Radio/index.svelte";
+	import Checkbox from "./components/Checkbox/index.svelte";
 </script>
 
 <style>
@@ -34,10 +35,9 @@
 
 <main>
 	<div style="width: 100%">
-		<Radio label="Radio 1" name="group"/>
-		<Radio label="Radio 2" name="group"/>
-		<Radio label="Checked" checked name="group"/>
-		<Radio label="Colored" color="#ef5350" name="group"/>
-		<Radio label="Disabled" disabled/>
+		<Checkbox label="Radio 1" name="group"/>
+		<Checkbox label="Disabled" disabled name="group"/>
+		<Checkbox label="Checked" checked name="group"/>
+		<Checkbox label="Indeterminate" indeterminate name="group"/>
 	</div>
 </main>

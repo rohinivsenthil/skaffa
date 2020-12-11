@@ -14,6 +14,7 @@
    * size
    * disable ripple
    * icon
+   * style
    */
 
   const radioStyle = `--radio-color: ${color}; `;
