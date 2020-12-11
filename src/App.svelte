@@ -34,6 +34,10 @@
 
 <main>
 	<div style="width: 100%">
-		<Radio label="Radio" />
+		<Radio label="Radio 1" name="group"/>
+		<Radio label="Radio 2" name="group"/>
+		<Radio label="Checked" checked name="group"/>
+		<Radio label="Colored" color="#ef5350" name="group"/>
+		<Radio label="Disabled" disabled/>
 	</div>
 </main>
