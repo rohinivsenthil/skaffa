@@ -1,16 +1,16 @@
-# Snowflake
+# Satin
 
-<a href="https://github.com/rohinivsenthil/snowflake"><img src="./assets/snowflake-logo.png" alt="Snowflake logo" width="192"></a>
+Satin is a small and minimalistic UI/UX component library for [Svelte](https://svelte.dev/) and [Sapper](https://sapper.svelte.dev/) projects.
 
-Snowflake is a small and minimalistic UI/UX component library for Svelte and Sapper projects.
+>  Note: 🚧 This library is a work in progress 🚧
 
 ### Components
 
-- [x] Text field
 - [x] Button
-- [x] Typography
-- [x] Radio
 - [x] Checkbox
+- [x] Radio
+- [x] Text field
+- [x] Typography
 - Select
 - List
 - Chip

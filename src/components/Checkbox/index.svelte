@@ -22,7 +22,7 @@
 </script>
 
 <style>
-  .snowflake-checkbox {
+  .satin-checkbox {
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -32,7 +32,7 @@
   }
 
   /* Input */
-  .snowflake-checkbox-input {
+  .satin-checkbox-input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -55,7 +55,7 @@
   }
 
   /* Span */
-  .snowflake-checkbox-label {
+  .satin-checkbox-label {
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -69,7 +69,7 @@
   }
 
   /* Box */
-  .snowflake-checkbox-label::before {
+  .satin-checkbox-label::before {
     content: "";
     display: inline-block;
     box-sizing: border-box;
@@ -84,7 +84,7 @@
   }
 
   /* Checkmark */
-  .snowflake-checkbox-label::after {
+  .satin-checkbox-label::after {
     content: "";
     display: block;
     position: absolute;
@@ -99,83 +99,83 @@
   }
 
   /* Checked, Indeterminate */
-  .snowflake-checkbox-input:checked,
-  .snowflake-checkbox-input:indeterminate {
+  .satin-checkbox-input:checked,
+  .satin-checkbox-input:indeterminate {
     background-color: var(--checkbox-color);
   }
 
-  .snowflake-checkbox-input:checked + .snowflake-checkbox-label::before,
-  .snowflake-checkbox-input:indeterminate + .snowflake-checkbox-label::before {
+  .satin-checkbox-input:checked + .satin-checkbox-label::before,
+  .satin-checkbox-input:indeterminate + .satin-checkbox-label::before {
     border-color: var(--checkbox-color);
     background-color: var(--checkbox-color);
   }
 
-  .snowflake-checkbox-input:checked + .snowflake-checkbox-label::after,
-  .snowflake-checkbox-input:indeterminate + .snowflake-checkbox-label::after {
+  .satin-checkbox-input:checked + .satin-checkbox-label::after,
+  .satin-checkbox-input:indeterminate + .satin-checkbox-label::after {
     border-color: rgb(255, 255, 255);
   }
 
-  .snowflake-checkbox-input:indeterminate + .snowflake-checkbox-label::after {
+  .satin-checkbox-input:indeterminate + .satin-checkbox-label::after {
     border-left: none;
     transform: translate(4px, 3px);
   }
 
   /* Hover, Focus */
-  .snowflake-checkbox:hover > .snowflake-checkbox-input {
+  .satin-checkbox:hover > .satin-checkbox-input {
     opacity: 0.04;
   }
 
-  .snowflake-checkbox-input:focus {
+  .satin-checkbox-input:focus {
     opacity: 0.12;
   }
 
-  .snowflake-checkbox:hover > .snowflake-checkbox-input:focus {
+  .satin-checkbox:hover > .satin-checkbox-input:focus {
     opacity: 0.16;
   }
 
   /* Active */
-  .snowflake-checkbox-input:active {
+  .satin-checkbox-input:active {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
   }
 
-  .snowflake-checkbox-input:active + .snowflake-checkbox-label::before {
+  .satin-checkbox-input:active + .satin-checkbox-label::before {
     border-color: var(--checkbox-color);
   }
 
-  .snowflake-checkbox-input:checked:active + .snowflake-checkbox-label::before {
+  .satin-checkbox-input:checked:active + .satin-checkbox-label::before {
     border-color: transparent;
     background-color: rgba(0, 0, 0, 0.6);
   }
 
   /* Disabled */
-  .snowflake-checkbox > .snowflake-checkbox-input:disabled {
+  .satin-checkbox > .satin-checkbox-input:disabled {
     opacity: 0;
   }
 
-  .snowflake-checkbox-input:disabled + .snowflake-checkbox-label {
+  .satin-checkbox-input:disabled + .satin-checkbox-label {
     color: rgba(0, 0, 0, 0.38);
     cursor: initial;
   }
 
-  .snowflake-checkbox-input:disabled + .snowflake-checkbox-label::before {
+  .satin-checkbox-input:disabled + .satin-checkbox-label::before {
     border-color: currentColor;
   }
 
-  .snowflake-checkbox-input:checked:disabled
-    + .snowflake-checkbox-label::before,
-  .snowflake-checkbox-input:indeterminate:disabled
-    + .snowflake-checkbox-label::before {
+  .satin-checkbox-input:checked:disabled
+    + .satin-checkbox-label::before,
+  .satin-checkbox-input:indeterminate:disabled
+    + .satin-checkbox-label::before {
     border-color: transparent;
     background-color: currentColor;
   }
 </style>
 
-<label class="snowflake-checkbox" style={checkboxStyle}>
+<label class="satin-checkbox" style={checkboxStyle}>
   <input
     type="checkbox"
-    class="snowflake-checkbox-input"
+    class="satin-checkbox-input"
     {disabled}
     {checked}
     {name}
@@ -185,5 +185,5 @@
     {value}
     on:change={onChange}
     {indeterminate} />
-  <span class="snowflake-checkbox-label">{label}</span>
+  <span class="satin-checkbox-label">{label}</span>
 </label>

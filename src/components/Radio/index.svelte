@@ -21,7 +21,7 @@
 </script>
 
 <style>
-  .snowflake-radio {
+  .satin-radio {
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -33,7 +33,7 @@
   }
 
   /* Input */
-  .snowflake-radio-input {
+  .satin-radio-input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -55,14 +55,14 @@
   }
 
   /* Label */
-  .snowflake-radio-label {
+  .satin-radio-label {
     display: inline-block;
     width: 100%;
     cursor: pointer;
   }
 
   /* Circle */
-  .snowflake-radio-label::before {
+  .satin-radio-label::before {
     content: "";
     display: inline-block;
     box-sizing: border-box;
@@ -77,7 +77,7 @@
   }
 
   /* Check */
-  .snowflake-radio-label::after {
+  .satin-radio-label::after {
     content: "";
     display: block;
     position: absolute;
@@ -92,64 +92,64 @@
   }
 
   /* Checked */
-  .snowflake-radio-input:checked {
+  .satin-radio-input:checked {
     background-color: var(--radio-color);
   }
 
-  .snowflake-radio-input:checked + .snowflake-radio-label::before {
+  .satin-radio-input:checked + .satin-radio-label::before {
     border-color: var(--radio-color);
   }
 
-  .snowflake-radio-input:checked + .snowflake-radio-label::after {
+  .satin-radio-input:checked + .satin-radio-label::after {
     transform: translate(5px, 5px) scale(1);
   }
 
   /* Hover, Focus */
-  .snowflake-radio:hover > .snowflake-radio-input {
+  .satin-radio:hover > .satin-radio-input {
     opacity: 0.04;
   }
 
-  .snowflake-radio-input:focus {
+  .satin-radio-input:focus {
     opacity: 0.12;
   }
 
-  .snowflake-radio:hover > .snowflake-radio-input:focus {
+  .satin-radio:hover > .satin-radio-input:focus {
     opacity: 0.16;
   }
 
   /* Active */
-  .snowflake-radio-input:active {
+  .satin-radio-input:active {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
   }
 
-  .snowflake-radio-input:active + .snowflake-radio-label::before {
+  .satin-radio-input:active + .satin-radio-label::before {
     border-color: var(--radio-color);
   }
 
   /* Disabled */
-  .snowflake-radio > .snowflake-radio-input:disabled {
+  .satin-radio > .satin-radio-input:disabled {
     opacity: 0;
   }
 
-  .snowflake-radio-input:disabled + .snowflake-radio-label {
+  .satin-radio-input:disabled + .satin-radio-label {
     color: rgba(0, 0, 0, 0.38);
     cursor: initial;
   }
 
-  .snowflake-radio-input:disabled + .snowflake-radio-label::before {
+  .satin-radio-input:disabled + .satin-radio-label::before {
     border-color: currentColor;
   }
 
-  .snowflake-radio-input:disabled + .snowflake-radio-label::after {
+  .satin-radio-input:disabled + .satin-radio-label::after {
     background-color: currentColor;
   }
 </style>
 
-<label class="snowflake-radio" style={radioStyle}>
+<label class="satin-radio" style={radioStyle}>
   <input
-    class="snowflake-radio-input"
+    class="satin-radio-input"
     type="radio"
     {name}
     {disabled}
@@ -159,5 +159,5 @@
     {required}
     {value}
     {...inputProps} />
-  <span class="snowflake-radio-label">{label}</span>
+  <span class="satin-radio-label">{label}</span>
 </label>
