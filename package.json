@@ -1,5 +1,5 @@
 {
-  "name": "satin",
+  "name": "skaffa",
   "version": "1.0.0",
   "svelte": "src/index.js",
   "main": "lib/index.js",

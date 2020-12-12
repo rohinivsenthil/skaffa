@@ -21,7 +21,7 @@
 </script>
 
 <style>
-  .satin-radio {
+  .skaffa-radio {
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -33,7 +33,7 @@
   }
 
   /* Input */
-  .satin-radio-input {
+  .skaffa-radio-input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -55,14 +55,14 @@
   }
 
   /* Label */
-  .satin-radio-label {
+  .skaffa-radio-label {
     display: inline-block;
     width: 100%;
     cursor: pointer;
   }
 
   /* Circle */
-  .satin-radio-label::before {
+  .skaffa-radio-label::before {
     content: "";
     display: inline-block;
     box-sizing: border-box;
@@ -77,7 +77,7 @@
   }
 
   /* Check */
-  .satin-radio-label::after {
+  .skaffa-radio-label::after {
     content: "";
     display: block;
     position: absolute;
@@ -92,64 +92,64 @@
   }
 
   /* Checked */
-  .satin-radio-input:checked {
+  .skaffa-radio-input:checked {
     background-color: var(--radio-color);
   }
 
-  .satin-radio-input:checked + .satin-radio-label::before {
+  .skaffa-radio-input:checked + .skaffa-radio-label::before {
     border-color: var(--radio-color);
   }
 
-  .satin-radio-input:checked + .satin-radio-label::after {
+  .skaffa-radio-input:checked + .skaffa-radio-label::after {
     transform: translate(5px, 5px) scale(1);
   }
 
   /* Hover, Focus */
-  .satin-radio:hover > .satin-radio-input {
+  .skaffa-radio:hover > .skaffa-radio-input {
     opacity: 0.04;
   }
 
-  .satin-radio-input:focus {
+  .skaffa-radio-input:focus {
     opacity: 0.12;
   }
 
-  .satin-radio:hover > .satin-radio-input:focus {
+  .skaffa-radio:hover > .skaffa-radio-input:focus {
     opacity: 0.16;
   }
 
   /* Active */
-  .satin-radio-input:active {
+  .skaffa-radio-input:active {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
   }
 
-  .satin-radio-input:active + .satin-radio-label::before {
+  .skaffa-radio-input:active + .skaffa-radio-label::before {
     border-color: var(--radio-color);
   }
 
   /* Disabled */
-  .satin-radio > .satin-radio-input:disabled {
+  .skaffa-radio > .skaffa-radio-input:disabled {
     opacity: 0;
   }
 
-  .satin-radio-input:disabled + .satin-radio-label {
+  .skaffa-radio-input:disabled + .skaffa-radio-label {
     color: rgba(0, 0, 0, 0.38);
     cursor: initial;
   }
 
-  .satin-radio-input:disabled + .satin-radio-label::before {
+  .skaffa-radio-input:disabled + .skaffa-radio-label::before {
     border-color: currentColor;
   }
 
-  .satin-radio-input:disabled + .satin-radio-label::after {
+  .skaffa-radio-input:disabled + .skaffa-radio-label::after {
     background-color: currentColor;
   }
 </style>
 
-<label class="satin-radio" style={radioStyle}>
+<label class="skaffa-radio" style={radioStyle}>
   <input
-    class="satin-radio-input"
+    class="skaffa-radio-input"
     type="radio"
     {name}
     {disabled}
@@ -159,5 +159,5 @@
     {required}
     {value}
     {...inputProps} />
-  <span class="satin-radio-label">{label}</span>
+  <span class="skaffa-radio-label">{label}</span>
 </label>

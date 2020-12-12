@@ -16,7 +16,7 @@ export default ["es", "umd"].map((format) => {
 //			sourcemap: true,
 			format,
 			file: UMD ? pkg.main : pkg.module,
-			name: UMD ? "satin" : undefined,
+			name: UMD ? "skaffa" : undefined,
 		},
 		plugins: [
 			svelte({

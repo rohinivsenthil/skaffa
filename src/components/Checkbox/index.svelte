@@ -22,7 +22,7 @@
 </script>
 
 <style>
-  .satin-checkbox {
+  .skaffa-checkbox {
     z-index: 0;
     position: relative;
     display: inline-block;
@@ -32,7 +32,7 @@
   }
 
   /* Input */
-  .satin-checkbox-input {
+  .skaffa-checkbox-input {
     appearance: none;
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -55,7 +55,7 @@
   }
 
   /* Span */
-  .satin-checkbox-label {
+  .skaffa-checkbox-label {
     display: inline-flex;
     align-items: center;
     width: 100%;
@@ -69,7 +69,7 @@
   }
 
   /* Box */
-  .satin-checkbox-label::before {
+  .skaffa-checkbox-label::before {
     content: "";
     display: inline-block;
     box-sizing: border-box;
@@ -84,7 +84,7 @@
   }
 
   /* Checkmark */
-  .satin-checkbox-label::after {
+  .skaffa-checkbox-label::after {
     content: "";
     display: block;
     position: absolute;
@@ -99,83 +99,83 @@
   }
 
   /* Checked, Indeterminate */
-  .satin-checkbox-input:checked,
-  .satin-checkbox-input:indeterminate {
+  .skaffa-checkbox-input:checked,
+  .skaffa-checkbox-input:indeterminate {
     background-color: var(--checkbox-color);
   }
 
-  .satin-checkbox-input:checked + .satin-checkbox-label::before,
-  .satin-checkbox-input:indeterminate + .satin-checkbox-label::before {
+  .skaffa-checkbox-input:checked + .skaffa-checkbox-label::before,
+  .skaffa-checkbox-input:indeterminate + .skaffa-checkbox-label::before {
     border-color: var(--checkbox-color);
     background-color: var(--checkbox-color);
   }
 
-  .satin-checkbox-input:checked + .satin-checkbox-label::after,
-  .satin-checkbox-input:indeterminate + .satin-checkbox-label::after {
+  .skaffa-checkbox-input:checked + .skaffa-checkbox-label::after,
+  .skaffa-checkbox-input:indeterminate + .skaffa-checkbox-label::after {
     border-color: rgb(255, 255, 255);
   }
 
-  .satin-checkbox-input:indeterminate + .satin-checkbox-label::after {
+  .skaffa-checkbox-input:indeterminate + .skaffa-checkbox-label::after {
     border-left: none;
     transform: translate(4px, 3px);
   }
 
   /* Hover, Focus */
-  .satin-checkbox:hover > .satin-checkbox-input {
+  .skaffa-checkbox:hover > .skaffa-checkbox-input {
     opacity: 0.04;
   }
 
-  .satin-checkbox-input:focus {
+  .skaffa-checkbox-input:focus {
     opacity: 0.12;
   }
 
-  .satin-checkbox:hover > .satin-checkbox-input:focus {
+  .skaffa-checkbox:hover > .skaffa-checkbox-input:focus {
     opacity: 0.16;
   }
 
   /* Active */
-  .satin-checkbox-input:active {
+  .skaffa-checkbox-input:active {
     opacity: 1;
     transform: scale(0);
     transition: transform 0s, opacity 0s;
   }
 
-  .satin-checkbox-input:active + .satin-checkbox-label::before {
+  .skaffa-checkbox-input:active + .skaffa-checkbox-label::before {
     border-color: var(--checkbox-color);
   }
 
-  .satin-checkbox-input:checked:active + .satin-checkbox-label::before {
+  .skaffa-checkbox-input:checked:active + .skaffa-checkbox-label::before {
     border-color: transparent;
     background-color: rgba(0, 0, 0, 0.6);
   }
 
   /* Disabled */
-  .satin-checkbox > .satin-checkbox-input:disabled {
+  .skaffa-checkbox > .skaffa-checkbox-input:disabled {
     opacity: 0;
   }
 
-  .satin-checkbox-input:disabled + .satin-checkbox-label {
+  .skaffa-checkbox-input:disabled + .skaffa-checkbox-label {
     color: rgba(0, 0, 0, 0.38);
     cursor: initial;
   }
 
-  .satin-checkbox-input:disabled + .satin-checkbox-label::before {
+  .skaffa-checkbox-input:disabled + .skaffa-checkbox-label::before {
     border-color: currentColor;
   }
 
-  .satin-checkbox-input:checked:disabled
-    + .satin-checkbox-label::before,
-  .satin-checkbox-input:indeterminate:disabled
-    + .satin-checkbox-label::before {
+  .skaffa-checkbox-input:checked:disabled
+    + .skaffa-checkbox-label::before,
+  .skaffa-checkbox-input:indeterminate:disabled
+    + .skaffa-checkbox-label::before {
     border-color: transparent;
     background-color: currentColor;
   }
 </style>
 
-<label class="satin-checkbox" style={checkboxStyle}>
+<label class="skaffa-checkbox" style={checkboxStyle}>
   <input
     type="checkbox"
-    class="satin-checkbox-input"
+    class="skaffa-checkbox-input"
     {disabled}
     {checked}
     {name}
@@ -185,5 +185,5 @@
     {value}
     on:change={onChange}
     {indeterminate} />
-  <span class="satin-checkbox-label">{label}</span>
+  <span class="skaffa-checkbox-label">{label}</span>
 </label>

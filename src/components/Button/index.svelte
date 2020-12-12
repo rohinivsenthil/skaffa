@@ -19,15 +19,15 @@
   const btnStyle = `--btn-color: ${rgbCode}; ` + style;
 
   const btnClass =
-    "satin-btn " +
-    `satin-btn-${variant} ` +
-    `satin-btn-${size} ` +
-    `${fullWidth ? "satin-btn-full-width " : ""}` +
-    `${disableElevation ? "satin-btn-disable-elevation " : ""}`;
+    "skaffa-btn " +
+    `skaffa-btn-${variant} ` +
+    `skaffa-btn-${size} ` +
+    `${fullWidth ? "skaffa-btn-full-width " : ""}` +
+    `${disableElevation ? "skaffa-btn-disable-elevation " : ""}`;
 </script>
 
 <style>
-  .satin-btn {
+  .skaffa-btn {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -50,75 +50,75 @@
       border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   }
 
-  .satin-btn-small {
+  .skaffa-btn-small {
     padding: 4px 10px;
     font-size: 13px;
   }
 
-  .satin-btn-medium {
+  .skaffa-btn-medium {
     padding: 6px 16px;
     font-size: 14px;
   }
 
-  .satin-btn-large {
+  .skaffa-btn-large {
     padding: 8px 22px;
     font-size: 15px;
   }
 
-  .satin-btn:disabled {
+  .skaffa-btn:disabled {
     color: rgba(0, 0, 0, 0.26);
   }
 
-  .satin-btn:hover {
+  .skaffa-btn:hover {
     cursor: pointer;
   }
 
-  .satin-btn-contained {
+  .skaffa-btn-contained {
     background-color: rgb(var(--btn-color));
     color: rgb(255, 255, 255);
     box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
       0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   }
 
-  .satin-btn-contained:hover:not(:disabled) {
+  .skaffa-btn-contained:hover:not(:disabled) {
     box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
     filter: brightness(110%);
   }
 
-  .satin-btn-contained:disabled {
+  .skaffa-btn-contained:disabled {
     box-shadow: none;
     background-color: rgba(0, 0, 0, 0.12);
   }
 
-  .satin-btn-outlined {
+  .skaffa-btn-outlined {
     background-color: transparent;
     border: 1px solid rgb(var(--btn-color));
     color: rgb(var(--btn-color));
   }
 
-  .satin-btn-outlined:disabled {
+  .skaffa-btn-outlined:disabled {
     border: 1px solid rgba(0, 0, 0, 0.12);
   }
 
-  .satin-btn-text {
+  .skaffa-btn-text {
     background-color: transparent;
     color: rgb(var(--btn-color));
   }
 
-  .satin-btn-text:hover:not(:disabled) {
+  .skaffa-btn-text:hover:not(:disabled) {
     background-color: rgba(var(--btn-color), 0.05);
   }
 
-  .satin-btn-full-width {
+  .skaffa-btn-full-width {
     width: 100%;
   }
 
-  .satin-btn-disable-elevation:not(:disabled) {
+  .skaffa-btn-disable-elevation:not(:disabled) {
     box-shadow: none;
   }
 
-  .satin-btn-disable-elevation:hover:not(:disabled) {
+  .skaffa-btn-disable-elevation:hover:not(:disabled) {
     box-shadow: none;
   }
 </style>
