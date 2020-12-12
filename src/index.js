@@ -4,3 +4,11 @@ import TextField from "./components/TextField/index.svelte";
 import Typography from "./components/Typography/index.svelte";
 import Radio from "./components/Radio/index.svelte";
 import Checkbox from "./components/Checkbox/index.svelte";
+
+export {
+  Button,
+  TextField,
+  Typography,
+  Radio,
+  Checkbox
+}

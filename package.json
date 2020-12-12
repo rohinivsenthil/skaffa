@@ -1,11 +1,12 @@
 {
   "name": "satin",
   "version": "1.0.0",
-  "main": "src/index.js",
+  "svelte": "src/index.js",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public",
     "lint": "eslint . --ext .js,.svelte --fix",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
