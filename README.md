@@ -4,6 +4,12 @@ Skaffa is a small and minimalistic UI/UX component library for [Svelte](https://
 
 >  Note: 🚧 This library is a work in progress 🚧
 
+### Installation 
+
+```sh
+npm install skaffa
+```
+
 ### Usage
 
 ```svelte
@@ -21,16 +27,16 @@ Skaffa is a small and minimalistic UI/UX component library for [Svelte](https://
 - [x] Radio
 - [x] Text field
 - [x] Typography
-- Select
-- List
-- Chip
-- Menu
-- Navigation drawer
-- Snackbar
-- Dialog
-- Card
-- Slider
-- Data table
-- Autocomplete
-- Tooltip
-- Date picker
+- [ ] Select
+- [ ] List
+- [ ] Chip
+- [ ] Menu
+- [ ] Navigation drawer
+- [ ] Snackbar
+- [ ] Dialog
+- [ ] Card
+- [ ] Slider
+- [ ] Data table
+- [ ] Autocomplete
+- [ ] Tooltip
+- [ ] Date picker
