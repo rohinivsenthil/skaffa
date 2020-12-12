@@ -4,6 +4,16 @@ Skaffa is a small and minimalistic UI/UX component library for [Svelte](https://
 
 >  Note: 🚧 This library is a work in progress 🚧
 
+### Usage
+
+```svelte
+<script>
+  import { Button } from 'skaffa';
+</script>
+
+<Button>Click me!</Button>
+```
+
 ### Components
 
 - [x] Button
