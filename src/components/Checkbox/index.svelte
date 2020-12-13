@@ -1,7 +1,7 @@
 <script>
   export let name;
   export let id;
-  export let label;
+  export let label = "";
   export let indeterminate = false;
   export let disabled = false;
   export let checked;
