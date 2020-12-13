@@ -45,7 +45,7 @@
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     line-height: 1.75;
-    letter-spacing: 1.4px;
+    letter-spacing: 0.02857em;
 
     overflow: hidden;
     outline: none;

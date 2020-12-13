@@ -8,176 +8,228 @@
   export let id;
   export let name;
   export let fullWidth = false;
-  export let helperText;
   export let onChange;
   export let type = "text";
   export let multiline = false;
   export let rows = "1";
   export let error = false;
   export let inputProps = {};
+  export let placeholder = " ";
+  export let disabled = false;
+  export let variant = "standard";
   /**
    * TODO: add in following props
-   * disabled
-   * input props // fix css
    * placeholder //fix css
    * size
    * variant
+   * helperText
    */
 
+  const textfComponent = `${multiline ? "textarea" : "input"}`;
   const textfValue = `${value ? value : defaultValue ? defaultValue : ""}`;
-  const textfGroupStyle = `--textf-color: ${color}; `;
-  const textfGroupClass =
-    "skaffa-textf-group " +
-    `${fullWidth ? "skaffa-textf-group-full-width " : ""}`;
-  const textfClass = "skaffa-textf " + `${error ? "skaffa-textf-error " : ""}`;
-  const textfBarClass =
-    "skaffa-textf-bar " + `${error ? "skaffa-textf-bar-error " : ""}`;
-  const textfLabelClass =
-    "skaffa-textf-label " + `${error ? "skaffa-textf-label-error " : ""}`;
-  const textfHelperTextClass =
-    "skaffa-textf-helper-text " +
-    `${error ? "skaffa-textf-helper-text-error " : ""}`;
   label = `${required ? label + " *" : label}`;
+  const textfStyle = `--textfield-color: ${color}; `;
+  const textfClass =
+    `skaffa-textfield-${variant} ` +
+    `${fullWidth ? "skaffa-textfield-full-width " : ""}`;
+  const textfInputClass =
+    `skaffa-textfield-${variant}-${textfComponent} ` +
+    `${error ? `skaffa-textfield-${variant}-${textfComponent}-error ` : ""}`;
+  const textfLabelClass =
+    `skaffa-textfield-${variant}-label ` +
+    `${error ? `skaffa-textfield-${variant}-label-error ` : ""}`;
 </script>
 
 <style>
-  .skaffa-textf-group {
+  .skaffa-textfield-standard {
     position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    vertical-align: top;
-    min-width: 0;
-    margin: 18px 8px 8px 8px;
-    padding: 0;
+    display: inline-block;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  }
-
-  .skaffa-textf-group-full-width {
-    width: 100%;
-  }
-
-  .skaffa-textf {
-    display: block;
-    position: relative;
-    box-sizing: border-box;
-
-    width: 100%;
-    margin: 0;
-    padding: 0px 2px 10px 0px;
-    border: none;
-    border-bottom: 1px solid #757575;
-
-    color: rgba(0, 0, 0);
     font-size: 14px;
-    font-weight: 400;
-    letter-spacing: 0.15px;
-    cursor: text;
+    line-height: 1.5;
+    overflow: hidden;
   }
 
-  .skaffa-textf-error {
-    border-bottom: 1px solid #f44336;
+  .skaffa-textfield-full-width {
+    width: 100%;
   }
 
-  .skaffa-textf:focus {
+  /* Input, Textarea */
+  .skaffa-textfield-standard-input,
+  .skaffa-textfield-standard-textarea {
+    display: block;
+    box-sizing: border-box;
+    margin: 0;
+    border: none;
+    border-top: solid 27px transparent;
+    border-bottom: solid 1px rgba(0, 0, 0, 0.6);
+    padding: 0 0 4px;
+    width: 100%;
+    height: inherit;
+    color: rgba(0, 0, 0, 0.87);
+    background-color: transparent;
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    transition: border-bottom 0.2s, background-color 0.2s;
+  }
+
+  .skaffa-textfield-standard-input-error,
+  .skaffa-textfield-standard-textarea-error {
+    border-bottom: solid 1px rgba(244, 67, 54, 0.6);
+  }
+
+  /* Label */
+  .skaffa-textfield-standard-input + .skaffa-textfield-standard-label,
+  .skaffa-textfield-standard-textarea + .skaffa-textfield-standard-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    box-sizing: border-box;
+    padding: 7px 0 0;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 75%;
+    line-height: 18px;
+    pointer-events: none;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+    text-align: start;
+  }
+
+  .skaffa-textfield-standard-input-error
+    + .skaffa-textfield-standard-label-error,
+  .skaffa-textfield-standard-textarea-error
+    + .skaffa-textfield-standard-label-erro {
+    color: #f44336;
+  }
+
+  /* Underline */
+  .skaffa-textfield-standard-input + .skaffa-textfield-standard-label::after,
+  .skaffa-textfield-standard-textarea
+    + .skaffa-textfield-standard-label::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--textfield-color);
+    transform-origin: bottom center;
+    transform: scaleX(0);
+    transition: transform 0.2s;
+  }
+
+  .skaffa-textfield-standard-input-error
+    + .skaffa-textfield-standard-label-error::after,
+  .skaffa-textfield-standard-textarea-error
+    + .skaffa-textfield-standard-label-error::after {
+    background-color: #f44336;
+  }
+
+  /* Hover */
+  .skaffa-textfield-standard-input:hover,
+  .skaffa-textfield-standard-textarea:hover {
+    border-bottom-color: rgba(0, 0, 0);
+  }
+
+  .skaffa-textfield-standard-input-error:hover,
+  .skaffa-textfield-standard-textarea-error:hover {
+    border-bottom-color: #f44336;
+  }
+
+  /* Placeholder-shown */
+  .skaffa-textfield-standard-input:not(:focus):placeholder-shown
+    + .skaffa-textfield-standard-label,
+  .skaffa-textfield-standard-textarea:not(:focus):placeholder-shown
+    + .skaffa-textfield-standard-label {
+    font-size: inherit;
+    line-height: 56px;
+  }
+
+  .skaffa-textfield-standard-input::placeholder {
+    color: rgba(0, 0, 0, 0.38);
+  }
+
+  /* Focus */
+  .skaffa-textfield-standard-input:focus,
+  .skaffa-textfield-standard-textarea:focus {
     outline: none;
   }
 
-  .skaffa-textf-label {
-    position: absolute;
-    pointer-events: none;
-    padding: 0;
-    left: 0;
-    top: 0;
-
-    font-weight: 400;
-    color: rgba(0, 0, 0, 0.54);
-    font-size: 14px;
-    line-height: 1;
-    letter-spacing: 0.15px;
-
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
+  .skaffa-textfield-standard-input:focus + .skaffa-textfield-standard-label,
+  .skaffa-textfield-standard-textarea:focus + .skaffa-textfield-standard-label {
+    color: var(--textfield-color);
   }
 
-  .skaffa-textf-label-error {
+  .skaffa-textfield-standard-input-error:focus
+    + .skaffa-textfield-standard-label-error,
+  .skaffa-textfield-standard-textarea-error:focus
+    + .skaffa-textfield-standard-label-error {
     color: #f44336;
   }
 
-  .skaffa-textf:focus ~ .skaffa-textf-label,
-  .skaffa-textf:valid ~ .skaffa-textf-label {
-    top: -16px;
-    font-size: 10px;
-    color: var(--textf-color);
+  .skaffa-textfield-standard-input:focus
+    + .skaffa-textfield-standard-label::before,
+  .skaffa-textfield-standard-textarea:focus
+    + .skaffa-textfield-standard-label::before {
+    opacity: 0.12;
   }
 
-  .skaffa-textf:not(:focus) ~ .skaffa-textf-label {
-    color: rgba(0, 0, 0, 0.54);
+  .skaffa-textfield-standard-input:focus
+    + .skaffa-textfield-standard-label::after,
+  .skaffa-textfield-standard-textarea:focus
+    + .skaffa-textfield-standard-label::after {
+    transform: scale(1);
   }
 
-  .skaffa-textf:not(:focus) ~ .skaffa-textf-label-error {
-    color: #f44336;
+  /* Disabled */
+  .skaffa-textfield-standard-input:disabled,
+  .skaffa-textfield-standard-textarea:disabled {
+    border-bottom-color: rgba(0, 0, 0, 0.38);
+    color: rgba(0, 0, 0, 0.38);
   }
 
-  .skaffa-textf-error:focus ~ .skaffa-textf-label,
-  .skaffa-textf-error:valid ~ .skaffa-textf-label {
-    color: #f44336;
+  .skaffa-textfield-standard-input:disabled + .skaffa-textfield-standard-label,
+  .skaffa-textfield-standard-textarea:disabled
+    + .skaffa-textfield-standard-label {
+    color: rgba(0, 0, 0, 0.38);
   }
 
-  .skaffa-textf-bar {
-    position: relative;
-    display: block;
-  }
-
-  .skaffa-textf-bar:before,
-  .skaffa-textf-bar:after {
-    content: "";
-    height: 2px;
-    width: 0;
-    bottom: 0.5px;
-    position: absolute;
-    background: var(--textf-color);
-    transition: 0.2s ease all;
-    -moz-transition: 0.2s ease all;
-    -webkit-transition: 0.2s ease all;
-  }
-
-  .skaffa-textf-bar-error:before,
-  .skaffa-textf-bar-error:after {
-    background: #f44336;
-  }
-
-  .skaffa-textf-bar:before {
-    left: 50%;
-  }
-
-  .skaffa-textf-bar:after {
-    right: 50%;
-  }
-
-  .skaffa-textf:focus ~ .skaffa-textf-bar:before,
-  .skaffa-textf:focus ~ .skaffa-textf-bar:after {
-    width: 50%;
-  }
-
-  .skaffa-textf-helper-text {
-    margin-top: 5px;
-    text-align: left;
-    font-size: 10px;
-    color: #757575;
-  }
-
-  .skaffa-textf-helper-text-error {
-    color: #f44336;
+  /* Faster transition in Safari for less noticable fractional font-size issue */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      .skaffa-textfield-standard-input,
+      .skaffa-textfield-standard-input + .skaffa-textfield-standard-label,
+      .skaffa-textfield-standard-input
+        + .skaffa-textfield-standard-label::after,
+      .skaffa-textfield-standard-textarea,
+      .skaffa-textfield-standard-textarea + .skaffa-textfield-standard-label,
+      .skaffa-textfield-standard-textarea
+        + .skaffa-textfield-standard-label::after {
+        transition-duration: 0.1s;
+      }
+    }
   }
 </style>
 
-<div class={textfGroupClass} style={textfGroupStyle}>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+  rel="stylesheet" />
+
+<!-- svelte-ignore a11y-label-has-associated-control -->
+<label class={textfClass} style={textfStyle}>
   {#if !multiline}
     <input
-      class={textfClass}
+      class={textfInputClass}
+      {placeholder}
+      {required}
       {type}
-      required
+      {disabled}
       on:input={onChange}
       value={textfValue}
       {...inputProps}
@@ -186,18 +238,18 @@
       {name} />
   {:else}
     <textarea
-      class={textfClass}
+      class={textfInputClass}
+      {placeholder}
+      {required}
       {type}
       {rows}
-      {...inputProps}
-      required
+      {disabled}
       on:input={onChange}
       value={textfValue}
+      {...inputProps}
+      {style}
       {id}
       {name} />
   {/if}
-  <span class={textfBarClass} />
-  {#if helperText}<span class={textfHelperTextClass}>{helperText}</span>{/if}
-  <!-- svelte-ignore a11y-label-has-associated-control -->
-  <label class={textfLabelClass}>{label}</label>
-</div>
+  <span class={textfLabelClass}>{label}</span>
+</label>
