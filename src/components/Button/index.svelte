@@ -1,17 +1,18 @@
 <script>
-  import { hexToRgb } from "../../utils/hexToRgb";
   export let variant = "contained";
   export let onClick;
   export let disabled = false;
   export let fullWidth = false;
   export let disableElevation = false;
+  export let disableRipple = false;
   export let style = "";
   export let size = "medium";
   export let color = "#4791db";
-    /**
+  export let href;
+  /**
    * TODO: add in following props
+   * icon
    */
-  // href
 
   const btnStyle = `--btn-color: ${color}; ` + style;
 
@@ -20,7 +21,8 @@
     `skaffa-btn-${variant} ` +
     `skaffa-btn-${size} ` +
     `${fullWidth ? "skaffa-btn-full-width " : ""}` +
-    `${disableElevation ? "skaffa-btn-disable-elevation " : ""}`;
+    `${disableElevation ? "skaffa-btn-disable-elevation " : ""}` +
+    `${disableRipple ? "skaffa-btn-disable-ripple " : ""}`;
 </script>
 
 <style>
@@ -108,8 +110,13 @@
     background-color: rgb(255, 255, 255);
   }
 
-  .skaffa-btn-outlined::after, .skaffa-btn-text::after {
+  .skaffa-btn-outlined::after,
+  .skaffa-btn-text::after {
     background-color: var(--btn-color);
+  }
+
+  .skaffa-btn-disable-ripple::after {
+    padding: 0;
   }
 
   /* Hover, Focus */
@@ -131,15 +138,18 @@
     opacity: 0.3;
   }
 
-  .skaffa-btn-outlined:hover::before, .skaffa-btn-text:hover::before {
+  .skaffa-btn-outlined:hover::before,
+  .skaffa-btn-text:hover::before {
     opacity: 0.04;
   }
 
-  .skaffa-btn-outlined:focus::before,  .skaffa-btn-text:focus::before {
+  .skaffa-btn-outlined:focus::before,
+  .skaffa-btn-text:focus::before {
     opacity: 0.12;
   }
 
-  .skaffa-btn-outlined:hover:focus::before, .skaffa-btn-text:hover:focus::before {
+  .skaffa-btn-outlined:hover:focus::before,
+  .skaffa-btn-text:hover:focus::before {
     opacity: 0.16;
   }
 
@@ -155,7 +165,8 @@
     transition: transform 0s;
   }
 
-  .skaffa-btn-outlined:active::after, .skaffa-btn-text:active::after {
+  .skaffa-btn-outlined:active::after,
+  .skaffa-btn-text:active::after {
     opacity: 0.16;
     transform: translate(-50%, -50%) scale(0);
     transition: transform 0s;
@@ -204,11 +215,20 @@
   href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
   rel="stylesheet" />
 
-<button
-  class={btnClass}
-  style={btnStyle}
-  {disabled}
-  on:click={onClick}
-  type="button">
-  <slot />
-</button>
+{#if href && !disabled}
+  <a
+    {href}
+    class={btnClass}
+    style={btnStyle}
+    {disabled}
+    on:click={onClick}><slot /></a>
+{:else}
+  <button
+    class={btnClass}
+    style={btnStyle}
+    {disabled}
+    on:click={onClick}
+    type="button">
+    <slot />
+  </button>
+{/if}
