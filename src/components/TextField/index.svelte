@@ -21,7 +21,7 @@
    * TODO: add in following props
    * placeholder //fix css
    * size
-   * variant
+   * variant - outlined
    * helperText
    */
 
@@ -30,24 +30,27 @@
   label = `${required ? label + " *" : label}`;
   const textfStyle = `--textfield-color: ${color}; `;
   const textfClass =
-    `skaffa-textfield-${variant} ` +
-    `${fullWidth ? "skaffa-textfield-full-width " : ""}`;
+    `skaffa-textfield ` + `${fullWidth ? "skaffa-textfield-full-width " : ""}`;
   const textfInputClass =
+    `skaffa-textfield-${textfComponent} ` +
     `skaffa-textfield-${variant}-${textfComponent} ` +
-    `${error ? `skaffa-textfield-${variant}-${textfComponent}-error ` : ""}`;
+    `${error ? `skaffa-textfield-${textfComponent}-error ` : ""}`;
   const textfLabelClass =
+    `skaffa-textfield-label ` +
     `skaffa-textfield-${variant}-label ` +
-    `${error ? `skaffa-textfield-${variant}-label-error ` : ""}`;
+    `${error ? `skaffa-textfield-label-error ` : ""}`;
 </script>
 
 <style>
-  .skaffa-textfield-standard {
+  .skaffa-textfield {
     position: relative;
     display: inline-block;
     font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-size: 14px;
     line-height: 1.5;
+    letter-spacing: 0.02857em;
     overflow: hidden;
+    margin: 8px;
   }
 
   .skaffa-textfield-full-width {
@@ -55,19 +58,18 @@
   }
 
   /* Input, Textarea */
-  .skaffa-textfield-standard-input,
-  .skaffa-textfield-standard-textarea {
+  .skaffa-textfield-input,
+  .skaffa-textfield-textarea {
     display: block;
     box-sizing: border-box;
     margin: 0;
     border: none;
     border-top: solid 27px transparent;
     border-bottom: solid 1px rgba(0, 0, 0, 0.6);
-    padding: 0 0 4px;
-    width: 100%;
     height: inherit;
     color: rgba(0, 0, 0, 0.87);
-    background-color: transparent;
+    height: inherit;
+    color: rgba(0, 0, 0, 0.87);
     box-shadow: none; /* Firefox */
     font-family: inherit;
     font-size: inherit;
@@ -75,14 +77,29 @@
     transition: border-bottom 0.2s, background-color 0.2s;
   }
 
-  .skaffa-textfield-standard-input-error,
-  .skaffa-textfield-standard-textarea-error {
+  .skaffa-textfield-standard-input,
+  .skaffa-textfield-standard-textarea {
+    padding: 0 0 4px;
+    width: 100%;
+    background-color: transparent;
+  }
+
+  .skaffa-textfield-filled-input,
+  .skaffa-textfield-filled-textarea {
+    border-radius: 4px 4px 0 0;
+    padding: 0 12px 10px;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+
+  .skaffa-textfield-input-error,
+  .skaffa-textfield-textarea-error {
     border-bottom: solid 1px rgba(244, 67, 54, 0.6);
   }
 
   /* Label */
-  .skaffa-textfield-standard-input + .skaffa-textfield-standard-label,
-  .skaffa-textfield-standard-textarea + .skaffa-textfield-standard-label {
+  .skaffa-textfield-input + .skaffa-textfield-label,
+  .skaffa-textfield-textarea + .skaffa-textfield-label {
     position: absolute;
     top: 0;
     left: 0;
@@ -90,26 +107,32 @@
     bottom: 0;
     display: block;
     box-sizing: border-box;
-    padding: 7px 0 0;
+    text-align: start;
     color: rgba(0, 0, 0, 0.6);
     font-size: 75%;
     line-height: 18px;
     pointer-events: none;
     transition: color 0.2s, font-size 0.2s, line-height 0.2s;
-    text-align: start;
   }
 
-  .skaffa-textfield-standard-input-error
-    + .skaffa-textfield-standard-label-error,
-  .skaffa-textfield-standard-textarea-error
-    + .skaffa-textfield-standard-label-erro {
+  .skaffa-textfield-standard-input + .skaffa-textfield-standard-label,
+  .skaffa-textfield-standard-textarea + .skaffa-textfield-standard-label {
+    padding: 7px 0 0;
+  }
+
+  .skaffa-textfield-filled-input + .skaffa-textfield-filled-label,
+  .skaffa-textfield-filled-textarea + .skaffa-textfield-filled-label {
+    padding: 7px 12px 0;
+  }
+
+  .skaffa-textfield-input-error + .skaffa-textfield-label-error,
+  .skaffa-textfield-textarea-error + .skaffa-textfield-label-error {
     color: #f44336;
   }
 
   /* Underline */
-  .skaffa-textfield-standard-input + .skaffa-textfield-standard-label::after,
-  .skaffa-textfield-standard-textarea
-    + .skaffa-textfield-standard-label::after {
+  .skaffa-textfield-input + .skaffa-textfield-label::after,
+  .skaffa-textfield-textarea + .skaffa-textfield-label::after {
     content: "";
     position: absolute;
     left: 0;
@@ -123,29 +146,32 @@
     transition: transform 0.2s;
   }
 
-  .skaffa-textfield-standard-input-error
-    + .skaffa-textfield-standard-label-error::after,
-  .skaffa-textfield-standard-textarea-error
-    + .skaffa-textfield-standard-label-error::after {
+  .skaffa-textfield-input-error + .skaffa-textfield-label-error::after,
+  .skaffa-textfield-textarea-error + .skaffa-textfield-label-error::after {
     background-color: #f44336;
   }
 
   /* Hover */
-  .skaffa-textfield-standard-input:hover,
-  .skaffa-textfield-standard-textarea:hover {
+  .skaffa-textfield-input:hover,
+  .skaffa-textfield-textarea:hover {
     border-bottom-color: rgba(0, 0, 0);
   }
 
-  .skaffa-textfield-standard-input-error:hover,
-  .skaffa-textfield-standard-textarea-error:hover {
+  .skaffa-textfield-filled-input:hover,
+  .skaffa-textfield-filled-textarea:hover {
+    background-color: rgba(0, 0, 0, 0.08);
+  }
+
+  .skaffa-textfield-input-error:hover,
+  .skaffa-textfield-textarea-error:hover {
     border-bottom-color: #f44336;
   }
 
   /* Placeholder-shown */
-  .skaffa-textfield-standard-input:not(:focus):placeholder-shown
-    + .skaffa-textfield-standard-label,
-  .skaffa-textfield-standard-textarea:not(:focus):placeholder-shown
-    + .skaffa-textfield-standard-label {
+  .skaffa-textfield-input:not(:focus):placeholder-shown
+    + .skaffa-textfield-label,
+  .skaffa-textfield-textarea:not(:focus):placeholder-shown
+    + .skaffa-textfield-label {
     font-size: inherit;
     line-height: 56px;
   }
@@ -155,61 +181,58 @@
   }
 
   /* Focus */
-  .skaffa-textfield-standard-input:focus,
-  .skaffa-textfield-standard-textarea:focus {
+  .skaffa-textfield-input:focus,
+  .skaffa-textfield-textarea:focus {
     outline: none;
   }
 
-  .skaffa-textfield-standard-input:focus + .skaffa-textfield-standard-label,
-  .skaffa-textfield-standard-textarea:focus + .skaffa-textfield-standard-label {
+  .skaffa-textfield-input:focus + .skaffa-textfield-label,
+  .skaffa-textfield-textarea:focus + .skaffa-textfield-label {
     color: var(--textfield-color);
   }
 
-  .skaffa-textfield-standard-input-error:focus
-    + .skaffa-textfield-standard-label-error,
-  .skaffa-textfield-standard-textarea-error:focus
-    + .skaffa-textfield-standard-label-error {
+  .skaffa-textfield-input-error:focus + .skaffa-textfield-label-error,
+  .skaffa-textfield-textarea-error:focus + .skaffa-textfield-label-error {
     color: #f44336;
   }
 
-  .skaffa-textfield-standard-input:focus
-    + .skaffa-textfield-standard-label::before,
-  .skaffa-textfield-standard-textarea:focus
-    + .skaffa-textfield-standard-label::before {
+  .skaffa-textfield-input:focus + .skaffa-textfield-label::before,
+  .skaffa-textfield-textarea:focus + .skaffa-textfield-label::before {
     opacity: 0.12;
   }
 
-  .skaffa-textfield-standard-input:focus
-    + .skaffa-textfield-standard-label::after,
-  .skaffa-textfield-standard-textarea:focus
-    + .skaffa-textfield-standard-label::after {
+  .skaffa-textfield-input:focus + .skaffa-textfield-label::after,
+  .skaffa-textfield-textarea:focus + .skaffa-textfield-label::after {
     transform: scale(1);
   }
 
   /* Disabled */
-  .skaffa-textfield-standard-input:disabled,
-  .skaffa-textfield-standard-textarea:disabled {
+  .skaffa-textfield-input:disabled,
+  .skaffa-textfield-textarea:disabled {
     border-bottom-color: rgba(0, 0, 0, 0.38);
     color: rgba(0, 0, 0, 0.38);
   }
 
-  .skaffa-textfield-standard-input:disabled + .skaffa-textfield-standard-label,
-  .skaffa-textfield-standard-textarea:disabled
-    + .skaffa-textfield-standard-label {
+  .skaffa-textfield-input:disabled + .skaffa-textfield-label,
+  .skaffa-textfield-textarea:disabled + .skaffa-textfield-label {
     color: rgba(0, 0, 0, 0.38);
+  }
+
+  /* Disabled */
+  .skaffa-textfield-filled-input:disabled,
+  .skaffa-textfield-filled-textarea:disabled {
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   /* Faster transition in Safari for less noticable fractional font-size issue */
   @media not all and (min-resolution: 0.001dpcm) {
     @supports (-webkit-appearance: none) {
-      .skaffa-textfield-standard-input,
-      .skaffa-textfield-standard-input + .skaffa-textfield-standard-label,
-      .skaffa-textfield-standard-input
-        + .skaffa-textfield-standard-label::after,
-      .skaffa-textfield-standard-textarea,
-      .skaffa-textfield-standard-textarea + .skaffa-textfield-standard-label,
-      .skaffa-textfield-standard-textarea
-        + .skaffa-textfield-standard-label::after {
+      .skaffa-textfield-input,
+      .skaffa-textfield-input + .skaffa-textfield-label,
+      .skaffa-textfield-input + .skaffa-textfield-label::after,
+      .skaffa-textfield-textarea,
+      .skaffa-textfield-textarea + .skaffa-textfield-label,
+      .skaffa-textfield-textarea + .skaffa-textfield-label::after {
         transition-duration: 0.1s;
       }
     }
