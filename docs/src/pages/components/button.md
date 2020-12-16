@@ -9,11 +9,9 @@ Buttons allow users to take actions, and make choices, with a single tap.
   import { Button } from 'skaffa';
 </script>
 
-<div style="display:flex; justify-content:center">
 
-  <Button>Button</Button>
+<Button>Button</Button>
 
-</div>
 ```
 <br/>
 

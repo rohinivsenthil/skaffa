@@ -36,6 +36,7 @@
     border: none;
     border-radius: 4px;
     min-width: 64px;
+    height: fit-content;
     margin: 8px;
 
     text-overflow: ellipsis;

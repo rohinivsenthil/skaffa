@@ -1,4 +1,4 @@
-# [Svelte<span>Docs</span>](/) #
+# [Skaffa](/) #
 
 <style>
     span{color:var(--light)}

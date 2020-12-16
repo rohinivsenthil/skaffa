@@ -4,7 +4,7 @@
   "version": "0.3.2",
   "dependencies": {
     "@svelte-docs/server": "^0.1.3",
-    "skaffa": "0.0.3",
+    "skaffa": "^0.0.4",
     "highlight.js": ">=10.4.1",
     "yargs-parser": ">=13.1.2"
   },
